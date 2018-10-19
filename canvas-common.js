@@ -5,6 +5,10 @@ let contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 
+function writeMessage(canvas, message) {
+    contextReal.fillText(message, 10, 25);
+}
+
 $('#canvas-draft').mousedown(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
@@ -15,6 +19,8 @@ $('#canvas-draft').mousedown(function(e){
 $('#canvas-draft').mousemove(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
+    var message = 'Mouse position: ' + mouseX + ',' + mouseY;
+    writeMessage(canvasReal, message);
     if(dragging){
         currentFunction.onDragging([mouseX,mouseY],e);
     }
@@ -39,6 +45,7 @@ $('#canvas-draft').mouseenter(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseEnter([mouseX,mouseY],e);
+    console.log(mouseX);
 });
 
 class PaintFunction{

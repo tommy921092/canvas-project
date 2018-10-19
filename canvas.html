@@ -16,8 +16,10 @@
       <canvas id="canvas-draft" class="canvas" width='1280px' height='720px'></canvas>
   </div>
   <div class="buttons">
-      <span class="btn btn-primary fa fa-square" id="drawing-rectangle" >Drawing Rectangle</span>
-      <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
+    <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
+      <span class="btn btn-info fa fa-paint-brush" id="drawing-rectangle" >Drawing Rectangle</span>
+      <span class="btn btn-info fa fa-paint-brush" id="drawing-oval" >Drawing Oval</span>
+      <span class="btn btn-info fa fa-paint-brush" id="drawing-polygon" >Drawing Polygon</span>
   </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -26,6 +28,8 @@
     <script text="text/javascript" src="canvas-common.js"></script>
     <script text="text/javascript" src="drawing-line.js"></script>
     <script text="text/javascript" src="drawing-rectangle.js"></script>
+    <script text="text/javascript" src="drawing-oval.js"></script>
+    <script text="text/javascript" src="drawing-polygon.js"></script>
     <!-- You can add more functionalities here by adding more seperate class in javascript files here...-->
     <script text="text/javascript">
       $('#drawing-rectangle').on('click', function(){
@@ -37,7 +41,7 @@
       $('#drawing-oval').on('click', function(){
         currentFunction = new DrawingOval(contextReal,contextDraft);
       });
-      currentFunction = new DrawingRectangle(contextReal,contextDraft);
+      currentFunction = new DrawingLine(contextReal,contextDraft);//default shape
     </script>
   </body>
 </html>
