@@ -10,6 +10,7 @@ class DrawingRectangle extends PaintFunction{
         this.origX = coord[0];
         this.origY = coord[1];
     }
+    
     onDragging(coord,event){
         this.contextDraft.fillStyle = "#f44";
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
