@@ -14,7 +14,6 @@ class DrawingLine extends PaintFunction{
     }
     onDragging(coord,event){
         this.draw(coord[0],coord[1]);
-        console.log(event.offsetX);
     }
 
     onMouseMove(){}

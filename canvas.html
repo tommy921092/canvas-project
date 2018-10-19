@@ -34,6 +34,9 @@
       $('#drawing-line').on('click', function(){
         currentFunction = new DrawingLine(contextReal,contextDraft);
       });
+      $('#drawing-oval').on('click', function(){
+        currentFunction = new DrawingOval(contextReal,contextDraft);
+      });
       currentFunction = new DrawingRectangle(contextReal,contextDraft);
     </script>
   </body>
