@@ -11,10 +11,14 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <canvas id="canvas-real" class="canvas" width='1280px' height='720px'></canvas>
-    <canvas id="canvas-draft" class="canvas" width='1280px' height='720px'></canvas>
-    
-
+    <div id="canvas-container">
+      <canvas id="canvas-real" class="canvas" width='1280px' height='720px'></canvas>
+      <canvas id="canvas-draft" class="canvas" width='1280px' height='720px'></canvas>
+  </div>
+  <div class="buttons">
+      <span class="btn btn-primary fa fa-square" id="drawing-rectangle" >Drawing Rectangle</span>
+      <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
+  </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -24,10 +28,13 @@
     <script text="text/javascript" src="drawing-rectangle.js"></script>
     <!-- You can add more functionalities here by adding more seperate class in javascript files here...-->
     <script text="text/javascript">
-        // Switch based on User input, for example like clicking a button or something else. We will talk about this part in the section after this one. 
-        // currentFunction = new DrawingLine(contextReal,contextDraft);
-        currentFunction = new DrawingRectangle(contextReal,contextDraft);
-        //hello there
+      $('#drawing-rectangle').on('click', function(){
+          currentFunction = new DrawingRectangle(contextReal,contextDraft);
+      });
+      $('#drawing-line').on('click', function(){
+        currentFunction = new DrawingLine(contextReal,contextDraft);
+      });
+      currentFunction = new DrawingRectangle(contextReal,contextDraft);
     </script>
   </body>
 </html>
