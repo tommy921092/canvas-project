@@ -28,10 +28,13 @@
     <script text="text/javascript" src="drawing-rectangle.js"></script>
     <!-- You can add more functionalities here by adding more seperate class in javascript files here...-->
     <script text="text/javascript">
-        // Switch based on User input, for example like clicking a button or something else. We will talk about this part in the section after this one. 
-        // currentFunction = new DrawingLine(contextReal,contextDraft);
-        currentFunction = new DrawingRectangle(contextReal,contextDraft);
-        //hello there
+      $('#drawing-rectangle').on('click', function(){
+          currentFunction = new DrawingRectangle(contextReal,contextDraft);
+      });
+      $('#drawing-line').on('click', function(){
+        currentFunction = new DrawingLine(contextReal,contextDraft);
+      });
+      currentFunction = new DrawingRectangle(contextReal,contextDraft);
     </script>
   </body>
 </html>
