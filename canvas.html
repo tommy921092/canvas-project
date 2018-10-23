@@ -43,22 +43,15 @@
 <!--       <canvas id="canvas-grid" class="canvas active grid"></canvas> -->
     <!-- to be modified -->
     </div>
-        <div class="buttons">
-        <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
-        <span class="btn btn-info fa fa-paint-brush" id="drawing-straight" >Drawing Straight</span>
+    <div class="buttons">
         <span class="btn btn-info fa fa-paint-brush" id="clear" >Clear</span>
         <span class="btn btn-info fa fa-paint-brush"><input type=range min=5 max=20 id=brushSize> </span>
         <span>stroke:</span><input id="color-stroke" type="color" value="color">
         <span>fill:</span><input id="color-fill" type="color" value="color">
-        <span class="btn btn-info fa fa-paint-brush dropdown-toggle"  id="pencil" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      Pencil
-      <div class="dropdown-menu" aria-labelledby="pencil">
-        <a class="dropdown-item">Solid</a>
-        <a class="dropdown-item">Dotted</a>
-        <a class="dropdown-item">Spray</a>
-      </div>
-    </span>
+        <span>type:</span><select aria-labelledby="pencil">
+            <option id="Solid" value="Solid">Solid</option>
+            <option id="Dotted" value="Dotted">Dotted</option>
+        </select>
     </div>
     <div class="position">
         <span>x: </span>
@@ -68,13 +61,13 @@
         <span class="mouse-y"></span>
     </div>
     <div id="tools" class="btn-group-vertical">
-        <button type="button" class="btn btn-secondary" id="pencil" title="Brush [b]" data-shortcut="b">
+        <button type="button" class="btn btn-secondary" id="drawing-line" title="Brush [b]" data-shortcut="b">
             <i class="fas fa-pencil-alt"></i>
         </button>
-        <button type="button" class="btn btn-secondary" id="Line" title="Line [l]" data-shortcut="l">
+        <button type="button" class="btn btn-secondary" id="drawing-straight" title="Line [l]" data-shortcut="l">
             <i class="fas fa-slash"></i>
         </button>
-        <button type="button" class="btn btn-secondary" id="Line" title="Line [l]" data-shortcut="l">
+        <button type="button" class="btn btn-secondary" id="drawing-spray" title="Line [l]" data-shortcut="l">
             <i class="fas fa-spray-can"></i>
         </button>
         <div class="dropdown">

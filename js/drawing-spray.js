@@ -1,6 +1,6 @@
 var density = 50;
 
-class Spray extends PaintFunction{
+class DrawingSpray extends PaintFunction{
   constructor(contextReal){
       super();
       this.context = contextReal;

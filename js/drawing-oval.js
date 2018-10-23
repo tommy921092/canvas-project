@@ -3,6 +3,8 @@ class DrawingOval extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+        this.contextDraft.strokeStyle
+        
     }
     //need modification
     onMouseDown(coord,event){

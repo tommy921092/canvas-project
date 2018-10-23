@@ -3,6 +3,7 @@ class DrawingRectangle extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+        
     }
 
     onMouseDown(coord,event){

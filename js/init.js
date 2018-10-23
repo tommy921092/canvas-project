@@ -8,6 +8,9 @@ $('#drawing-line').on('click', function () {
 $('#drawing-straight').on('click', function () {
     currentFunction = new DrawingStraight(contextReal, contextDraft);
 });
+$('#drawing-spray').on('click', function () {
+    currentFunction = new DrawingSpray(contextReal, contextDraft);
+});
 $('#drawing-rectangle').on('click', function () {
     currentFunction = new DrawingRectangle(contextReal, contextDraft);
 });
@@ -34,21 +37,13 @@ $("#brushSize").on("input", function () {
     contextReal.lineWidth = $(this).val();
 });
 
-$(".dropdown-item").on('click', function(){
-    console.log($(this).text())
-    var pencilChoice = $(this).text();
-    switch (pencilChoice){
-      case "Solid":
-      contextReal.setLineDash([]);
-      break
-      case "Dotted":
-      contextReal.setLineDash([10,10]);
-      break
-      case "Spray":
-      currentFunction = new Spray(contextReal, contextDraft);
-       }      
+$("select").on('input', function(){
+      if($(this).val()=='Solid'){
+        contextReal.setLineDash([]);
+      } else {
+        contextReal.setLineDash([10,10]);
+      }
     })
-
 
 //Default
 currentFunction = new DrawingLine(contextReal, contextDraft);//default shape
@@ -74,19 +69,6 @@ $('canvas').mousemove(function (e) {
 $('#tools button').on('click', function (e) {
     $('#tools button').removeClass('active');
     $(this).toggleClass('active');
-})
-
-$(document).ready(function () {
-
-    $("input").change(function () {
-
-        var opacity = $("input[type=range]").val();
-        var color = $("input[type=color]").val();
-
-        var rgbaCol = 'rgba(' + parseInt(color.slice(-6, -4), 16) + ',' + parseInt(color.slice(-4, -2), 16) + ',' + parseInt(color.slice(-2), 16) + ',' + opacity + ')';
-
-        $('div').css('background-color', rgbaCol)
-    })
 })
 
 $('.dropdown-menu button').on('click',function(e){

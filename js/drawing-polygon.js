@@ -3,6 +3,7 @@ class DrawingPolygon extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+        
         this.x = [];
         this.y = [];
     }
