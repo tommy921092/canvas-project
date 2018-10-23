@@ -8,13 +8,11 @@ class DrawingOval extends PaintFunction{
     }
     //need modification
     onMouseDown(coord,event){
-        this.contextReal.lineWidth = 5;
         this.origX = coord[0]; //start point at (origX, origY)
         this.origY = coord[1];
         this.contextReal.beginPath();
     }
     onDragging(coord,event){
-        this.contextDraft.lineWidth = 5;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.contextDraft.beginPath();
         if(!event.shiftKey){

@@ -10,7 +10,6 @@ class DrawingPolygon extends PaintFunction{
 
     onMouseDown(coord,event){
         this.contextDraft.lineJoin = "round";
-        this.contextDraft.lineWidth = 5;
         this.x.push(coord[0]);
         this.y.push(coord[1]);
         if(this.x.length == 1){
@@ -34,7 +33,6 @@ class DrawingPolygon extends PaintFunction{
 
     onMouseUp(coord,event){
             this.contextReal.lineJoin = "round";
-            this.contextReal.lineWidth = 5;
             this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height)
             
              if((coord[0]-this.x[0]) < 80 && (coord[1]-this.y[0]) < 80 && this.x.length>2) {

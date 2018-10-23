@@ -7,7 +7,6 @@ class DrawingRectangle extends PaintFunction{
     }
 
     onMouseDown(coord,event){
-        this.contextReal.lineWidth = 30;
         this.origX = coord[0];
         this.origY = coord[1];
 
@@ -15,7 +14,6 @@ class DrawingRectangle extends PaintFunction{
 
     onDragging(coord,event){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
-        this.contextDraft.lineWidth = 30;
         this.draw(coord,this.contextDraft,event);
     }
 
