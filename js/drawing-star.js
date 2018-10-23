@@ -45,9 +45,7 @@ class DrawingStar extends PaintFunction{
     context.lineTo(this.origX, this.origY - outerRadius)
     context.closePath();
     context.lineWidth=5;
-    context.strokeStyle='blue';
     context.stroke();
-    context.fillStyle='skyblue';
     context.fill();
     }
 }

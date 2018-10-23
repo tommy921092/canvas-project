@@ -88,3 +88,7 @@ $(document).ready(function () {
         $('div').css('background-color', rgbaCol)
     })
 })
+
+$('.dropdown-menu button').on('click',function(e){
+    $('.dropdown .dropdown-toggle i').attr('class', $(this).children().attr('class'));
+})

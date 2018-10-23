@@ -24,7 +24,7 @@ body{
 #tools button {
     background-color: skyblue;
     box-shadow: 1px 1px 2px #000000;
-    opacity: 0.5;
+    opacity: 0.8;
     width: 70px;
     z-index: 1;
 }
