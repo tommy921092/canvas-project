@@ -42,3 +42,9 @@ body{
 div.dropdown-menu.show {
     left:70px!important;
 }
+
+ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}

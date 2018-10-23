@@ -74,3 +74,13 @@ $('#tools button').on('click', function (e) {
 $('.dropdown-menu button').on('click',function(e){
     $('.dropdown .dropdown-toggle i').attr('class', $(this).children().attr('class'));
 })
+
+$('#undo').on('click',function(){
+    oImg.onload = function() {
+        contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+        contextReal.drawImage(oImg,0,0);
+    }
+    oImg.src = restorePoints.pop();
+    console.log(restorePoints.length);
+    
+});

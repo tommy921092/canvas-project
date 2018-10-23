@@ -22,6 +22,8 @@ class DrawingStar extends PaintFunction{
     onMouseUp(coord,event){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.origX,this.origY,coord,this.contextReal);
+        var dataURL = canvasReal.toDataURL();
+        restorePoints.push(dataURL);
     }
     onMouseLeave(){}
     onMouseEnter(){}

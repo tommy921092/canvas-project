@@ -46,9 +46,9 @@ class DrawingPolygon extends PaintFunction{
             } else {
             this.contextReal.lineTo(coord[0], coord[1]);
             this.contextReal.stroke();
+            var dataURL = canvasReal.toDataURL();
+            restorePoints.push(dataURL);
             }
-            console.log(this.x);
-            console.log(this.y);
     }
     onMouseLeave(){}
     onMouseEnter(){}

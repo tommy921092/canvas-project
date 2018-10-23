@@ -22,6 +22,8 @@ class DrawingRectangle extends PaintFunction{
     onMouseUp(coord,event){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(coord,this.contextReal,event);
+        var dataURL = canvasReal.toDataURL();
+        restorePoints.push(dataURL);
     }
     onMouseLeave(){}
     onMouseEnter(){}
@@ -33,5 +35,6 @@ class DrawingRectangle extends PaintFunction{
             context.fillRect(this.origX,this.origY,coord[0] - this.origX,coord[0] - this.origX)
             context.strokeRect(this.origX,this.origY,coord[0] - this.origX,coord[0] - this.origX)
         }
+        
     }
 }
