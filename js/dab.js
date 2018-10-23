@@ -5,18 +5,19 @@ class DrawingText extends PaintFunction {
         this.contextDraft = contextDraft;
         this.height = null;
         this.width = null;
-        typing = false;
+        this.typing = false;
+        $('.text-panel').fadeIn(220);
     }
 
     onMouseDown(coord, event) {
         if (!typing) {
-
+            styleSet();
             this.contextDraft.strokeStyle = 'black';
             this.contextReal.strokeStyle = 'transparent';
-            this.contextDraft.lineWidth = 1;
+            this.contextDraft.lineWidth = 5;
             this.contextDraft.fillStyle = 'transparent';
             this.contextReal.fillStyle = 'transparent';
-            this.contextReal.font = '1px arial';
+            this.contextReal.font = `${sizeFont}px ${familyFont}`
             this.contextReal.textAlign = "center";
             this.contextReal.textBaseline = "middle";
             this.origX = coord[0];
@@ -47,6 +48,7 @@ class DrawingText extends PaintFunction {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         context.beginPath();
         this.width = coord[0] - this.origX;
+
         //For Square
         if (shifting) {
             if (coord[1] - this.origY < 0) {
@@ -80,36 +82,45 @@ class DrawingText extends PaintFunction {
             this.origY -= this.height;
         }
 
-        var x = this.origX;
-        var y = this.origY + this.height / 2;
+        var x = this.origX + this.width / 2 -1;
+        var y = this.origY + this.height / 2 ;
         var width = this.width;
 
         var textReal = this.contextReal;
 
-        $('#canvas-container').append(`<form class='textInputForm' style=" top:${this.origY + 50}px; left:${this.origX + 100}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-size:17px' type="text" placeholder='Input text here'> </form>`);
+        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY}px; left:${this.origX}px;">
+                <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px;' type="text" placeholder='Input text here'>
+            </form>`);
         $('.textInput').focus();
+        
+        $('.textInput').css({fontSize: `${sizeFont}px`, fontFamily: familyFont, color: currentColor, transform: `rotate(${textAngle}deg)`})
 
-        $('.textInput').css({ fontFamily: 'arial', color: 'black' })
-
-        $('#canvas-container').on('submit', '.textInputForm', function (e) {
+        $('#canvas').on('mouseenter','.textInput', function() {
+            $('.cursors').hide()
+        })
+        $('#canvas').on('mouseleave','.textInput', function() {
+            $('.cursors').show()
+        })
+        
+        $('#canvas').on('submit', '.textInputForm', function (e) {
+            textReal.font = `${sizeFont}px ${familyFont}`
+            var angle = textAngle;
             e.preventDefault();
-            textReal.font = '400 17px Arial'
-            textReal.fillStyle = 'black';
+            textReal.fillStyle = currentColor;
+
             var message = $('.textInput').val();
-            textReal.fillText(message, x + 10, y);
-            $('#canvas-container').off('submit', '.textInputForm')
+            textReal.translate(x, y)
+            textReal.rotate((Math.PI / 180) * angle);
+            textReal.fillText(message, 0, 0);
+            textReal.translate(-x - canvas.width / 2, -y - canvas.height / 2)
+            textReal.setTransform(1, 0, 0, 1, 0, 0);
+
+            $('#canvas').off('submit', '.textInputForm')
             $('.textInputForm').remove()
-            $('.cursors').show();
+            $('.cursors').show()
             typing = false;
+
+            saveMove();
         })
     }
-
-
-}
-
-function resetPosition() {
-    this.width = null;
-    this.height = null;
-    this.origX = null;
-    this.origY = null;
 }

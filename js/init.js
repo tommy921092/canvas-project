@@ -37,6 +37,10 @@ $("#brushSize").on("input", function () {
     contextReal.lineWidth = $(this).val();
 });
 
+$("#drawing-text").on("click", function () {
+    currentFunction = new DrawingText (contextReal, contextDraft);
+});
+
 $("select").on('input', function(){
       if($(this).val()=='Solid'){
         contextReal.setLineDash([]);
@@ -84,6 +88,4 @@ $('#undo').on('click',function(){
     restorePoints.pop();
     oImg.src = restorePoints.slice(-1);
 
-
-    
 });
