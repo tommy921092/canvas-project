@@ -2,7 +2,6 @@ $(document).ready(function(){
     contextReal.lineWidth = 10;
 })
 
-
 $('#drawing-line').on('click', function () {
     currentFunction = new DrawingLine(contextReal, contextDraft);
 });
