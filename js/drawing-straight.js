@@ -7,13 +7,11 @@ class DrawingStraight extends PaintFunction{
 
     onMouseDown(coord,event){
         this.contextReal.lineJoin = "round";
-        this.contextReal.lineWidth = 5;
         this.origX = coord[0];
         this.origY = coord[1];
     }
     onDragging(coord,event){
         this.contextDraft.lineJoin = "round";
-        this.contextDraft.lineWidth = 5;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(coord, this.contextDraft);
     }
