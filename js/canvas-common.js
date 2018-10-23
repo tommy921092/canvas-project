@@ -15,6 +15,8 @@ $('#canvas-draft').mousedown(function(e){
 $('#canvas-draft').mousemove(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
+    // var message = 'Mouse position: ' + mouseX + ',' + mouseY;
+    // writeMessage(canvasReal, message);
     if(dragging){
         currentFunction.onDragging([mouseX,mouseY],e);
     }
@@ -39,6 +41,7 @@ $('#canvas-draft').mouseenter(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseEnter([mouseX,mouseY],e);
+    // console.log(mouseX);
 });
 
 class PaintFunction{
@@ -49,4 +52,8 @@ class PaintFunction{
     onMouseUp(){}
     onMouseLeave(){}
     onMouseEnter(){}
-}    
+    clearDraft() {
+        contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        contextDraft.closePath();
+    }
+}
