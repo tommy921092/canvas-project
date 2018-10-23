@@ -80,7 +80,10 @@ $('#undo').on('click',function(){
         contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
         contextReal.drawImage(oImg,0,0);
     }
-    oImg.src = restorePoints.pop();
-    console.log(restorePoints.length);
+
+    restorePoints.pop();
+    oImg.src = restorePoints.slice(-1);
+
+
     
 });
