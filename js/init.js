@@ -16,6 +16,9 @@ $('.canvas-size').submit(function (e) {
     contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
 })
 
+
+// import image
+
 $('input.import-file').click(function (e) {
     e.preventDefault();
     $('input.upload').click();
