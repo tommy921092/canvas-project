@@ -4,7 +4,8 @@ class DrawingOval extends PaintFunction{
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
         this.contextDraft.strokeStyle
-        
+        this.contextReal.setLineDash([]);
+        this.contextDraft.setLineDash([]);
     }
     //need modification
     onMouseDown(coord,event){

@@ -4,7 +4,8 @@ class DrawingStar extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        
+        this.contextReal.setLineDash([]);
+        this.contextDraft.setLineDash([]);
     }
 
     onMouseDown(coord,event){
