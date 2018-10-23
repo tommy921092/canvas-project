@@ -47,8 +47,18 @@
         <span class="btn btn-info fa fa-paint-brush" id="drawing-line" >Drawing Line</span>
         <span class="btn btn-info fa fa-paint-brush" id="drawing-straight" >Drawing Straight</span>
         <span class="btn btn-info fa fa-paint-brush" id="clear" >Clear</span>
+        <span class="btn btn-info fa fa-paint-brush"><input type=range min=5 max=20 id=brushSize> </span>
         <span>stroke:</span><input id="color-stroke" type="color" value="color">
         <span>fill:</span><input id="color-fill" type="color" value="color">
+        <span class="btn btn-info fa fa-paint-brush dropdown-toggle"  id="pencil" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Pencil
+      <div class="dropdown-menu" aria-labelledby="pencil">
+        <a class="dropdown-item">Solid</a>
+        <a class="dropdown-item">Dotted</a>
+        <a class="dropdown-item">Spray</a>
+      </div>
+    </span>
     </div>
     <div class="position">
         <span>x: </span>
@@ -85,6 +95,7 @@
         <button type="button" class="btn btn-secondary" id="Eraser" title="Eraser [e]" data-shortcut="e">
             <i class="fas fa-eraser"></i>
         </button>
+
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -99,5 +110,7 @@
     <script text="text/javascript" src="js/drawing-straight.js"></script>
     <script text="text/javascript" src="js/drawing-star.js"></script>
     <script text="text/javascript" src="js/init.js"></script>
+    <script text="text/javascript" src="js/drawing-eraser.js"></script>
+    <script text="text/javascript" src="js/drawing-spray.js"></script>
   </body>
 </html>
