@@ -97,6 +97,13 @@ $("#brushSize").on("input", function () {
     contextReal.lineWidth = $(this).val();
 });
 
+
+// Opacity function ////////////////////////////////////
+$("#opacity").on("input", function () {
+    contextReal.globalAlpha = $(this).val();
+});
+
+
 $("#drawing-text").on("click", function () {
     currentFunction = new DrawingText (contextReal, contextDraft);
 });
