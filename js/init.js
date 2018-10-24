@@ -192,3 +192,11 @@ $('#redo').on('click',function(){
 }
 });
 });
+
+
+function resetPosition() {
+    this.width = null;
+    this.height = null;
+    this.origX = null;
+    this.origY = null;
+}

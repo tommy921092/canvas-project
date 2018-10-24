@@ -10,9 +10,7 @@ class DrawingText extends PaintFunction {
 
     onMouseDown(coord, event) {
         if (!typing) {
-
             this.contextDraft.strokeStyle = 'black';
-
             this.contextReal.strokeStyle = 'transparent';
             this.contextDraft.lineWidth = 1;
             this.contextDraft.fillStyle = 'transparent';
@@ -87,18 +85,18 @@ class DrawingText extends PaintFunction {
 
         var textReal = this.contextReal;
 
-        $('#canvas-container').append(`<form class='textInputForm' style=" top:${this.origY + 50}px; left:${this.origX + 100}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-size:17px' type="text" placeholder='Input text here'> </form>`);
+        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + 50}px; left:${this.origX + 100}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-size:17px' type="text" placeholder='Input text here'> </form>`);
         $('.textInput').focus();
 
         $('.textInput').css({ fontFamily: 'arial', color: 'black' })
 
-        $('#canvas-container').on('submit', '.textInputForm', function (e) {
+        $('#canvas').on('submit', '.textInputForm', function (e) {
             e.preventDefault();
             textReal.font = '400 17px Arial'
             textReal.fillStyle = 'black';
             var message = $('.textInput').val();
             textReal.fillText(message, x + 10, y);
-            $('#canvas-container').off('submit', '.textInputForm')
+            $('#canvas').off('submit', '.textInputForm')
             $('.textInputForm').remove()
             $('.cursors').show();
             typing = false;
