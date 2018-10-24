@@ -2,22 +2,16 @@ body {
     background: rgb(47, 206, 171);
 }
 .canvas{
-<<<<<<< HEAD
-<<<<<<< HEAD
     margin-left: 15vw;
     border:1px black dotted;
     position:absolute;
     top:15vh;
-=======
-=======
->>>>>>> color
     border:1px black dotted;
     position:absolute;
     top:50px;
     bottom:0px;
     left:100px;
     right:0px;
->>>>>>> 8785bcf379d1ef5c5da052cac88e4c000bc10e29
     cursor: crosshair;
     background: #fff;
 }
@@ -60,22 +54,17 @@ ul {
     display: flex;
     list-style: none;
     flex-direction: row;
-<<<<<<< HEAD
-<<<<<<< HEAD
     padding-top: 4vh;
     padding-left: 3vw;
 }
 
 li {
     padding-left: 3vw;
-=======
 }
 
 .textInputForm{
     position: absolute;
->>>>>>> 8785bcf379d1ef5c5da052cac88e4c000bc10e29
-}
-=======
+
 }
 
 .textInputForm{
@@ -92,4 +81,4 @@ li {
     z-index: 10;
     background-color: rgba(0,0,0,0.5); /*dim the background*/
   }
->>>>>>> color
+
