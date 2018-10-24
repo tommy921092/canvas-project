@@ -13,36 +13,40 @@
   </head>
   <body>
     <!-- splash screen -->
-<!--     <div class="splash">
-        <div id="overlay">
+
+    <div class="splash">
+        <div class="overlay">
             <div id="form-text">
-                <img src="">
+                <img src="./img/logo.png">
                 <form class="canvas-size" method="post">
                     <div class="size-forms">
-                        <span>W: </span>
-                        <input type="text" name="width" value="" class="dimension form-control" id="width">
-                    </div>
-                    <div class="size-forms">
-                        <span>H: </span>
-                        <input type="text" name="height" value="" class="dimension form-control" id="height">
+                        W: <input type ="text" name="width" value="" class="dimension form-conrol" id="width">
+                        H: <input type ="text" name="height" value="" class="dimension form-conrol" id="height">
                     </div>
                     <div class="submit-button">
                         <input type="submit" value="Create Canvas" class="form-button" id="create">
                     </div>
+                    <hr>
                     <div class="import-button">
                         <input type="file" class="upload" />
                         <input type="button" class="import-file form-button" value="Import Image">
                     </div>
                 </form>
             </div>
+
         </div>
+<<<<<<< HEAD
     </div> -->
     <div id="canvas-container">
         <canvas id="canvas-real" class="canvas" width='1280px' height='600px'></canvas>
         <canvas id="canvas-draft" class="canvas" width='1280px' height='600px'></canvas>
 <!--       <canvas id="canvas-grid" class="canvas active grid"></canvas> -->
     <!-- to be modified -->
+=======
+>>>>>>> color
     </div>
+
+
     <ul class="styleAttr">
         <img src="img/brand.svg" alt="" >
         <li><span class="btn btn-info" id="clear" ><i class="fas fa-trash-alt"></i></span></li>
@@ -99,10 +103,22 @@
             <i class="fas fa-filter"></i>
         </button>
     </div>
+
+        <!-- Canvas - added by Danny-->
+    <div id="canvas">
+        <canvas id="canvas-real" class="canvas"></canvas>
+        <canvas id="canvas-draft" class="canvas"></canvas>
+    </div>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    
+     <!-- added by Danny for overlay function -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    
     <!-- You can add more functionalities here by adding more seperate class in javascript files here...-->
     <script text="text/javascript" src="js/canvas-common.js"></script>
     <script text="text/javascript" src="js/drawing-line.js"></script>

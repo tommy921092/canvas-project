@@ -3,11 +3,14 @@ body {
 }
 .canvas{
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-left: 15vw;
     border:1px black dotted;
     position:absolute;
     top:15vh;
 =======
+=======
+>>>>>>> color
     border:1px black dotted;
     position:absolute;
     top:50px;
@@ -58,6 +61,7 @@ ul {
     list-style: none;
     flex-direction: row;
 <<<<<<< HEAD
+<<<<<<< HEAD
     padding-top: 4vh;
     padding-left: 3vw;
 }
@@ -71,3 +75,21 @@ li {
     position: absolute;
 >>>>>>> 8785bcf379d1ef5c5da052cac88e4c000bc10e29
 }
+=======
+}
+
+.textInputForm{
+    position: absolute;
+}
+
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5); /*dim the background*/
+  }
+>>>>>>> color

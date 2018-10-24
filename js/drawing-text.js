@@ -12,7 +12,8 @@ class DrawingText extends PaintFunction {
         if (!typing) {
 
             this.contextDraft.strokeStyle = 'black';
-            // this.contextReal.strokeStyle = 'transparent';
+
+            this.contextReal.strokeStyle = 'transparent';
             this.contextDraft.lineWidth = 1;
             this.contextDraft.fillStyle = 'transparent';
             this.contextReal.fillStyle = 'transparent';
@@ -103,6 +104,7 @@ class DrawingText extends PaintFunction {
             typing = false;
         })
     }
+
 }
 
 function resetPosition() {
