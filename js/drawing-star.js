@@ -4,6 +4,8 @@ class DrawingStar extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+        this.contextReal.setLineDash([]);
+        this.contextDraft.setLineDash([]);
     }
 
     onMouseDown(coord,event){
@@ -20,6 +22,8 @@ class DrawingStar extends PaintFunction{
     onMouseUp(coord,event){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(this.origX,this.origY,coord,this.contextReal);
+        var dataURL = canvasReal.toDataURL();
+        restorePoints.push(dataURL);
     }
     onMouseLeave(){}
     onMouseEnter(){}
@@ -44,10 +48,7 @@ class DrawingStar extends PaintFunction{
     }
     context.lineTo(this.origX, this.origY - outerRadius)
     context.closePath();
-    context.lineWidth=5;
-
     context.stroke();
-
     context.fill();
     }
 }

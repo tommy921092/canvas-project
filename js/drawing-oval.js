@@ -3,16 +3,17 @@ class DrawingOval extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
+        this.contextDraft.strokeStyle
+        this.contextReal.setLineDash([]);
+        this.contextDraft.setLineDash([]);
     }
     //need modification
     onMouseDown(coord,event){
-        this.contextReal.lineWidth = 5;
         this.origX = coord[0]; //start point at (origX, origY)
         this.origY = coord[1];
         this.contextReal.beginPath();
     }
     onDragging(coord,event){
-        this.contextDraft.lineWidth = 5;
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.contextDraft.beginPath();
         if(!event.shiftKey){
@@ -45,6 +46,8 @@ class DrawingOval extends PaintFunction{
             this.contextReal.fill();
             this.contextReal.stroke();
         }
+        var dataURL = canvasReal.toDataURL();
+        restorePoints.push(dataURL);
     }
     onMouseLeave(){}
     onMouseEnter(){}
