@@ -5,7 +5,9 @@ var contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
 let restorePoints = [];
+let a = [];
 var oImg = new Image();
+
 $('#canvas-draft').mousedown(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;

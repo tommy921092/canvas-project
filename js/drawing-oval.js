@@ -48,6 +48,7 @@ class DrawingOval extends PaintFunction{
         }
         var dataURL = canvasReal.toDataURL();
         restorePoints.push(dataURL);
+        console.log(1);
     }
     onMouseLeave(){}
     onMouseEnter(){}

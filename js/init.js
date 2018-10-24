@@ -1,6 +1,6 @@
 $(document).ready(function(){
     contextReal.lineWidth = 10;
-})
+
 
 $('#drawing-line').on('click', function () {
     currentFunction = new DrawingLine(contextReal, contextDraft);
@@ -76,11 +76,37 @@ $('.dropdown-menu button').on('click',function(e){
 })
 
 $('#undo').on('click',function(){
-    oImg.onload = function() {
-        contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-        contextReal.drawImage(oImg,0,0);
+    if(!(currentFunction instanceof DrawingRectangle)){
+        restorePoints.pop();
+    } else {
+        restorePoints.pop();
+        restorePoints.pop();
     }
-    oImg.src = restorePoints.pop();
-    console.log(restorePoints.length);
-    
+        oImg.src = restorePoints.slice(-1);
+        oImg.onload = function() {
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            contextReal.drawImage(oImg,0,0);
+        }
+        if(restorePoints.length==0){
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+        }
+
+});
+
+$('#redo').on('click',function() {
+})
+});
+
+$('#save').on('click',function() {
+    canvasReal.toBlob(function(blob){
+        var newImg = document.createElement('img'),
+            url = URL.createObjectURL(blob);
+
+        newImg.onload = function() {
+            URL.revokeObjectURL(url);
+        };
+
+        newImg.src = url;
+        document.body.appendChild(newImg);
+    });
 });
