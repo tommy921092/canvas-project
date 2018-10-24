@@ -76,3 +76,5 @@ function download(){
                 // console.log(image)
     download.setAttribute("href", image);
 }
+
+

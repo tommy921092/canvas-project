@@ -2,11 +2,10 @@ body {
     background: rgb(47, 206, 171);
 }
 .canvas{
-    margin-left: 15vw;
+    left: 8vw;
     border:1px black dotted;
     position:absolute;
     top:20vh;
-    position:absolute;
     cursor: crosshair;
     background: #fff;
 }
