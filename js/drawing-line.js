@@ -15,7 +15,10 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseMove(){}
-    onMouseUp(){}
+    onMouseUp(){
+        var dataURL = canvasReal.toDataURL();
+        restorePoints.push(dataURL);
+    }
     onMouseLeave(){}
     onMouseEnter(){}
 

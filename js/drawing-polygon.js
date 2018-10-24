@@ -17,6 +17,7 @@ class DrawingPolygon extends PaintFunction{
         if(this.x.length == 1){
             this.contextReal.beginPath();
             this.contextReal.moveTo(coord[0],coord[1]);
+
         }
 
     }
@@ -43,12 +44,13 @@ class DrawingPolygon extends PaintFunction{
                 this.contextReal.stroke();
                 this.x=[];
                 this.y=[];
+                var dataURL = canvasReal.toDataURL();
+            restorePoints.push(dataURL);
             } else {
             this.contextReal.lineTo(coord[0], coord[1]);
             this.contextReal.stroke();
-            var dataURL = canvasReal.toDataURL();
-            restorePoints.push(dataURL);
             }
+            
     }
     onMouseLeave(){}
     onMouseEnter(){}

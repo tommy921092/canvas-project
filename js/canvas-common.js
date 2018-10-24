@@ -7,7 +7,9 @@ let dragging = false;
 let typing = false;
 let shifting = false;
 let restorePoints = [];
+let discardedPoints =[];
 var oImg = new Image();
+var rImg = new Image();
 
 $('#canvas-draft').mousedown(function(e){
     let mouseX = e.offsetX;

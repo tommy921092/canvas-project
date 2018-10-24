@@ -101,7 +101,10 @@ class DrawingText extends PaintFunction {
             $('.textInputForm').remove()
             $('.cursors').show();
             typing = false;
-        })
+            var dataURL = canvasReal.toDataURL();
+            restorePoints.push(dataURL);
+        }
+        )
     }
 }
 
