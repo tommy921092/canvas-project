@@ -4,6 +4,8 @@ var canvasDraft = document.getElementById('canvas-draft');
 var contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
+let typing = false;
+let shifting = false;
 let restorePoints = [];
 let a = [];
 var oImg = new Image();
@@ -48,16 +50,21 @@ $('#canvas-draft').mouseenter(function(e){
 
 class PaintFunction{
     constructor(){
+        this.clearDraft();
+        $('#canvas').off('submit', '.textInputForm');
+        $('.textInputForm').remove();
     }
-    onMouseDown(){}
-    onDragging(){}
-    onMouseMove(){}
-    onMouseUp(){}
-    onMouseLeave(){}
-    onMouseEnter(){}
+    onMouseDown() { }
+    onDragging() { }
+    onMouseMove() { }
+    onMouseUp() { }
+    onMouseLeave() { }
+    onMouseEnter() { }
+    onClick() { }
+    onKeydown() { }
     clearDraft() {
         contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         contextDraft.closePath();
     }
-    
+          
 }
