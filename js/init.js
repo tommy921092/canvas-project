@@ -95,6 +95,7 @@ $('#Eraser').on('click', function () {
 
 $("#brushSize").on("input", function () {
     contextReal.lineWidth = $(this).val();
+    contextDraft.lineWidth = $(this).val();
 });
 
 $("#drawing-text").on("click", function () {
@@ -139,31 +140,30 @@ $('.dropdown-menu button').on('click',function(e){
     $('.dropdown .dropdown-toggle i').attr('class', $(this).children().attr('class'));
 })
 
+//undo
 $('#undo').on('click',function(){
-    if(!(currentFunction instanceof DrawingRectangle)){
-        restorePoints.pop();
-    } else {
-        restorePoints.pop();
-        restorePoints.pop();
-    }
-
-
-        oImg.src = restorePoints.slice(-1);
         oImg.onload = function() {
             contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
             contextReal.drawImage(oImg,0,0);
         }
-        if(restorePoints.length==0){
-            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-        }
+
+
+        var discard = restorePoints.pop()
+
+        if (discard != undefined){
+        discardedPoints.push(discard)}
+
+        if (restorePoints.length > 0){
+        oImg.src = restorePoints.slice(-1);
+    }   else {
+        contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    }
+
 
 });
 
-$('#redo').on('click',function() {
-})
-});
-
-$('#save').on('click',function() {
+//save as blob
+/* $('#save').on('click',function() {
     canvasReal.toBlob(function(blob){
         var newImg = document.createElement('img'),
             url = URL.createObjectURL(blob);
@@ -175,5 +175,20 @@ $('#save').on('click',function() {
         newImg.src = url;
         document.body.appendChild(newImg);
     });
+}) */
 
+$('#redo').on('click',function(){
+    if (discardedPoints.length > 0){
+    oImg.src = discardedPoints.slice(-1);
+    restorePoints.push(discardedPoints.pop());
+    contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    contextReal.drawImage(oImg,0,0);
+} else if (discardedPoints.length = 0) {
+    oImg.src = discardedPoints.slice(0)
+    contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+    contextReal.drawImage(oImg,0,0);
+} else if (discardedPoints = []){
+    alert ('You redo too much.')
+}
+});
 });

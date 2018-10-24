@@ -3,7 +3,7 @@ class DrawingOval extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.contextDraft.strokeStyle
+        this.contextReal.fillStyle = '#000';
         this.contextReal.setLineDash([]);
         this.contextDraft.setLineDash([]);
     }
@@ -48,7 +48,6 @@ class DrawingOval extends PaintFunction{
         }
         var dataURL = canvasReal.toDataURL();
         restorePoints.push(dataURL);
-        console.log(1);
     }
     onMouseLeave(){}
     onMouseEnter(){}
