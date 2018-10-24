@@ -17,19 +17,19 @@
     <div class="splash">
         <div class="overlay">
             <div id="form-text">
-                <img src="./img/logo.png">
+                <img id="coverpic" src="img/brand.svg">
                 <form class="canvas-size" method="post">
                     <div class="size-forms">
-                        W: <input type ="text" name="width" value="" class="dimension form-conrol" id="width">
-                        H: <input type ="text" name="height" value="" class="dimension form-conrol" id="height">
+                        <h1>Enter Canvas Dimensions</h1>
+                        <h2>Width : <input type ="text" name="width" value="" class="dimension form-conrol" id="width"></h2>
+                        <h2>Height: <input type ="text" name="height" value="" class="dimension form-conrol" id="height"></h2>
                     </div>
                     <div class="submit-button">
                         <input type="submit" value="Create Canvas" class="form-button" id="create">
                     </div>
-                    <hr>
                     <div class="import-button">
+                        <button class="btn"id="file-btn">Upload a file</button>
                         <input type="file" class="upload" />
-                        <input type="button" class="import-file form-button" value="Import Image">
                     </div>
                 </form>
             </div>

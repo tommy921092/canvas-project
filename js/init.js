@@ -19,10 +19,11 @@ $('.canvas-size').submit(function (e) {
 
 // import image
 
-$('input.import-file').click(function (e) {
-    e.preventDefault();
-    $('input.upload').click();
-});
+// $('input.import-file').click(function (e) {
+//     e.preventDefault();
+//     $('input.upload').click();
+// });
+
 $('input.upload').change(function () {
     var file = document.querySelector('input[type=file]').files[0];
     var url = URL.createObjectURL(file);
