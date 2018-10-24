@@ -23,7 +23,6 @@ class DrawingStraight extends PaintFunction{
     onMouseUp(coord,event){
         this.contextDraft.clearRect(0,0,canvasDraft.width,canvasDraft.height);
         this.draw(coord, this.contextReal);
-
     }
     onMouseLeave(){}
     onMouseEnter(){}

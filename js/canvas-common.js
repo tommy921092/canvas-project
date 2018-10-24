@@ -1,12 +1,9 @@
-let canvasReal = document.getElementById('canvas-real');
-let contextReal = canvasReal.getContext('2d');
-let canvasDraft = document.getElementById('canvas-draft');
-let contextDraft = canvasDraft.getContext('2d');
+var canvasReal = document.getElementById('canvas-real');
+var contextReal = canvasReal.getContext('2d');
+var canvasDraft = document.getElementById('canvas-draft');
+var contextDraft = canvasDraft.getContext('2d');
 let currentFunction;
 let dragging = false;
-
-
-
 
 
 $('#canvas-draft').mousedown(function(e){
@@ -45,11 +42,11 @@ $('#canvas-draft').mouseenter(function(e){
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
     currentFunction.onMouseEnter([mouseX,mouseY],e);
-    // console.log(mouseX);
 });
 
 class PaintFunction{
-    constructor(){}
+    constructor(){
+    }
     onMouseDown(){}
     onDragging(){}
     onMouseMove(){}
@@ -61,3 +58,4 @@ class PaintFunction{
         contextDraft.closePath();
     }
 }
+

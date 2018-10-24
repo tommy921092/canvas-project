@@ -60,15 +60,6 @@ $('input.upload').change(function () {
 
 
 
-
-
-
-
-
-
-
-
-
 $('#drawing-line').on('click', function(){
     currentFunction = new DrawingLine(contextReal,contextDraft);
   });
