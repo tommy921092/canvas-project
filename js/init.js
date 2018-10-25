@@ -163,7 +163,7 @@ $('#undo').on('click',function(){
 });
 
 //save as blob
-/* $('#save').on('click',function() {
+$('#save').on('click',function() {
     canvasReal.toBlob(function(blob){
         var newImg = document.createElement('img'),
             url = URL.createObjectURL(blob);
@@ -173,9 +173,12 @@ $('#undo').on('click',function(){
         };
 
         newImg.src = url;
-        document.body.appendChild(newImg);
+        imagesRef.put(blob).then(function(snapshot){
+            console.log('Uploaded a blob!');
+        })
+        // document.body.appendChild(newImg);
     });
-}) */
+})
 
 $('#redo').on('click',function(){
     if (discardedPoints.length > 0){

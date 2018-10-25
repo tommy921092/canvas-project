@@ -3,7 +3,6 @@ class DrawingOval extends PaintFunction{
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.contextReal.fillStyle = '#000';
         this.contextReal.setLineDash([]);
         this.contextDraft.setLineDash([]);
     }

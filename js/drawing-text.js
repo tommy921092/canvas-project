@@ -11,10 +11,10 @@ class DrawingText extends PaintFunction {
     onMouseDown(coord, event) {
         if (!typing) {
             this.contextDraft.strokeStyle = 'black';
-            this.contextReal.strokeStyle = 'transparent';
+            // this.contextReal.strokeStyle = 'transparent';
             this.contextDraft.lineWidth = 1;
             this.contextDraft.fillStyle = 'transparent';
-            this.contextReal.fillStyle = 'transparent';
+            // this.contextReal.fillStyle = 'transparent';
             this.contextReal.font = '1px arial';
             this.contextReal.textAlign = "center";
             this.contextReal.textBaseline = "middle";
