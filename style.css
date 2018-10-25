@@ -53,7 +53,7 @@ ul {
 }
 
 li {
-    padding-left: 3vw;
+    padding-left: 1vw;
 }
 
 .textInputForm{
@@ -64,8 +64,6 @@ li {
 .textInputForm{
     position: absolute;
 }
-
-
 
 .overlay{
     position: absolute;
