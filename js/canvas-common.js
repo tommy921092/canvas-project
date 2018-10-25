@@ -53,6 +53,10 @@ class PaintFunction{
         this.clearDraft();
         $('#canvas').off('submit', '.textInputForm');
         $('.textInputForm').remove();
+        contextReal.strokeStyle = $('#color-stroke').val();
+        contextDraft.strokeStyle = $('#color-stroke').val();
+        contextReal.fillStyle = $('#color-fill').val();
+        contextDraft.fillStyle = $('#color-fill').val();
     }
     onMouseDown() { }
     onDragging() { }
