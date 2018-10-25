@@ -5,7 +5,7 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseDown(coord,event){
-        this.context.lineJoin = "round";
+        this.context.lineJoin = this.context.lineCap = "round";
         this.context.beginPath();
         this.context.moveTo(coord[0],coord[1]);
         this.draw(coord[0],coord[1]);
