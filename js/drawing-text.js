@@ -7,6 +7,7 @@ var textFontStyle = 'normal';
 var textFontColor = 'black'
 var isBold = false;
 var isItalic = false;
+var tempColor;
 
 //start to build class
 class DrawingText extends PaintFunction {
@@ -98,8 +99,6 @@ class DrawingText extends PaintFunction {
 
         var textReal = this.contextReal;
 
-        textReal.fillStyle = 'black';
-
         $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + topmargin}px; left:${this.origX + leftmargin}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-weight:${textFontWeight}; font-size:${textFontSize}; font-style:${textFontStyle}; font-family:${textFontFace}; color:${textFontColor}' type="text" placeholder='Input text here'> </form>`);
 
 
@@ -108,10 +107,11 @@ class DrawingText extends PaintFunction {
         $('#canvas').on('submit', '.textInputForm', function (e) {
             e.preventDefault();
             var message = $('.textInput').val();
+            tempColor = textReal.fillStyle ;
             textReal.fillStyle = textFontColor;
             textReal.font = `${textFontWeight} ${textFontStyle} ${textFontSize} ${textFontFace}`
-            console.log(textReal.font);
             textReal.fillText(message, x + 10, y);
+            textReal.fillStyle = tempColor;
             $('#canvas').off('submit', '.textInputForm')
             $('.textInputForm').remove()
             $('.cursors').show();
