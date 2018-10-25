@@ -1,3 +1,13 @@
+//preset value
+
+var textFontWeight = 'normal';
+var textFontSize = '17px';
+var textFontFace = 'Arial';
+var textFontStyle = 'normal';
+var isBold = false;
+var isItalic = false;
+
+//start to build class
 class DrawingText extends PaintFunction {
     constructor(contextReal, contextDraft) {
         super();
@@ -6,6 +16,7 @@ class DrawingText extends PaintFunction {
         this.height = null;
         this.width = null;
         typing = false;
+
     }
 
     onMouseDown(coord, event) {
@@ -15,7 +26,7 @@ class DrawingText extends PaintFunction {
             this.contextDraft.lineWidth = 1;
             this.contextDraft.fillStyle = 'transparent';
             // this.contextReal.fillStyle = 'transparent';
-            this.contextReal.font = '1px arial';
+            // this.contextReal.font = '1px arial';
             this.contextReal.textAlign = "center";
             this.contextReal.textBaseline = "middle";
             this.origX = coord[0];
@@ -83,23 +94,25 @@ class DrawingText extends PaintFunction {
         var y = this.origY + this.height / 2;
         var topmargin = (parseInt($(".canvas").css("top")));
         console.log(topmargin)
-        var leftmargin = parseInt($(".canvas").css("left")) ;
+        var leftmargin = parseInt($(".canvas").css("left"));
 
         var width = this.width;
 
         var textReal = this.contextReal;
 
-        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + topmargin}px; left:${this.origX + leftmargin}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-size:17px' type="text" placeholder='Input text here'> </form>`);
-        $('.textInput').focus();
+        textReal.fillStyle = 'black';
 
-        $('.textInput').css({ fontFamily: 'arial', color: 'black' })
+        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + topmargin}px; left:${this.origX + leftmargin}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-weight:${textFontWeight}; font-size:${textFontSize}; font-style:${textFontStyle}; font-family:${textFontFace};' type="text" placeholder='Input text here'> </form>`);
+
+
+
 
         $('#canvas').on('submit', '.textInputForm', function (e) {
             e.preventDefault();
-            textReal.font = '400 17px Arial'
-            textReal.fillStyle = 'black';
             var message = $('.textInput').val();
-            textReal.fillText(message, x, y);
+            textReal.font = `${textFontWeight}  ${textFontStyle} ${textFontSize} ${textFontFace}`
+            console.log(textReal.font);
+            textReal.fillText(message, x + 10, y);
             $('#canvas').off('submit', '.textInputForm')
             $('.textInputForm').remove()
             $('.cursors').show();
@@ -117,4 +130,48 @@ function resetPosition() {
     this.height = null;
     this.origX = null;
     this.origY = null;
+
 }
+
+//Text Panel//
+//Fontface selector//
+$('#fontFace').on('input', function () {
+    textFontFace = ($(this).val());
+})
+
+//FontSize selector//
+$('#fontSize').on('input', function () {
+    textFontSize = ($(this).val()) + 'px';
+})
+
+//bold function in text panel
+$('#bold').click(function () {
+    if (!isBold) {
+        textFontWeight = 'bold';
+        isBold = true;
+        $('#bold').css('color', 'red');
+        $('.textInput').css('font-weight', 'bold');
+    } else {
+        textFontWeight = 'normal';
+        isBold = false;
+        $('#bold').css('color', 'white')
+        $('.textInput').css('font-weight', 'normal');
+    }
+}
+)
+
+//italic function in text panel
+$('#italic').click(function () {
+    if (!isItalic) {
+        textFontStyle = 'italic';
+        isItalic = true;
+        $('#italic').css('color', 'red')
+        $('.textInput').css('font-style', 'italic');
+    } else {
+        textFontStyle = 'normal';
+        isItalic = false;
+        $('#italic').css('font-style', 'normal')
+    }
+}
+)
+
