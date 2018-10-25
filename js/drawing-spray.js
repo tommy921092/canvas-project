@@ -19,7 +19,10 @@ class DrawingSpray extends PaintFunction{
       var radius = 20;
       var offsetX = getRandomInt(-radius, radius);
       var offsetY = getRandomInt(-radius, radius);
+      var tempStyle = this.context.fillStyle;
+      this.context.fillStyle = this.context.strokeStyle;
       this.context.fillRect(coord[0] + offsetX, coord[1] + offsetY, 1, 1);
+      this.context.fillStyle = tempStyle;
     }
   }
 

@@ -1,21 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Canvas Painter</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
   </head>
   <body>
 
-        
 
     <!-- splash screen -->
 
@@ -26,14 +29,14 @@
                 <form class="canvas-size" method="post">
                     <div class="size-forms">
                         <h1>Enter Canvas Dimensions</h1>
-                        <h2>Width : <input type ="text" name="width" value="" class="dimension form-conrol" id="width"></h2>
-                        <h2>Height: <input type ="text" name="height" value="" class="dimension form-conrol" id="height"></h2>
+                        <h2>Width : <input type="text" name="width" value="" class="dimension form-conrol" id="width"></h2>
+                        <h2>Height: <input type="text" name="height" value="" class="dimension form-conrol" id="height"></h2>
                     </div>
                     <div class="submit-button">
                         <input type="submit" value="Create Canvas" class="form-button" id="create">
                     </div>
                     <div class="import-button">
-                        <button class="btn"id="file-btn">Upload a file</button>
+                        <button class="btn" id="file-btn">Upload a file</button>
                         <input type="file" class="upload" />
                     </div>
                 </form>
@@ -43,7 +46,6 @@
 
     </div>
     <ul class="styleAttr">
-
         <img src="img/brand.svg" alt="" >
         <li><span class="btn btn-info" id="clear" ><i class="fas fa-trash-alt"></i></span></li>
         <li>
@@ -52,7 +54,7 @@
                 type="button" id="dropdownMenu1" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-download"></i>
-            </button>
+                </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <a id="download" download="image.png"><span class="btn btn-info" onClick="download()"><i class="fas fa-download"></i></button></a>
                 <span class="btn btn-info" id="save" ><i class="fas fa-save"></i></span>
@@ -61,14 +63,14 @@
         </li>
         <li><span class="btn btn-info " id="undo" ><i class="fas fa-undo"></i></span></li>
         <li><span class="btn btn-info " id="redo" ><i class="fas fa-redo"></i></span></li>
-
         <li><span>brushSize:</span><span class="btn btn-info"><input type=range min=5 max=20 id=brushSize></span></li>
 
         <li><span>stroke: </span><input id="color-stroke" type="color" value="color"></li>
         <li><span>fill: </span><input id="color-fill" type="color" value="color"></li>
         <li><span>type: </span>
 
-            <select aria-labelledby="pencil">
+            <select id="pencilType" aria-labelledby="pencil">
+
                 <option id="Solid" value="Solid">Solid</option>
                 <option id="Dotted" value="Dotted">Dotted</option>
             </select>
@@ -79,6 +81,32 @@
         <li><span>Opacity: </span><span class="btn btn-info"><input value=1 type="range" min=0 max=1 id=opacity step="0.1"></span></li>
     </ul>
 
+    <!-- Tom - text panel-->
+
+    <ul class="textPanel">
+        <li><span>Font-color: </span><input id="font-color" type="color" value="black"></li>
+        <li><span>Font-Face: </span>
+            <select id="fontFace" aria-labelledby="Font-Face">
+                <option id="Arial" value="Arial">Arial</option>
+                <option id="Helvetica" value="Helvetica">Helvetica</option>
+                <option id="Times New Roman" value="Times New Roman">Times New Roman</option>
+                <option id="Algerian" value="Algerian">Algerian</option>
+            </select>
+        </li>
+        <li><span>Font-Size: </span>
+            <span class="btn btn-info"><input value=17 type="range" min=8 max=40 id="fontSize"></span>
+        </li>
+        <li>
+            <button type="button" class="btn btn-secondary" id="bold" title="Bold" data-shortcut="b">
+                <i class="fas fa-bold"></i>
+        </li>
+        <li>
+            <button type="button" class="btn btn-secondary" id="italic" title="Italic" data-shortcut="b">
+                <i class="fas fa-italic"></i>
+        </li>
+    </ul>
+
+    <!--end of text panel-->
 
     <div id="tools" class="btn-group-vertical">
         <div class="position">
@@ -98,9 +126,8 @@
             <i class="fas fa-spray-can"></i>
         </button>
         <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle"
-                    type="button" id="dropdownMenu1" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <i class="far fa-square"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -111,7 +138,7 @@
             </div>
         </div>
         <button type="button" class="btn btn-secondary" id="drawing-text" title="Text [t]" data-shortcut="t">
-        <i class="fas fa-font"></i></button>
+            <i class="fas fa-font"></i></button>
         <button type="button type3" class="btn btn-secondary" id="Eraser" title="Eraser [e]" data-shortcut="e">
             <i class="fas fa-eraser"></i>
         </button>
@@ -120,7 +147,7 @@
         </button>
     </div>
 
-        <!-- Canvas - added by Danny-->
+    <!-- Canvas - added by Danny-->
     <div id="canvas">
         <canvas id="canvas-real" class="canvas"></canvas>
         <canvas id="canvas-draft" class="canvas"></canvas>
@@ -139,6 +166,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-storage.js"></script>
 
     <script>
+
     // Initialize Firebase
     // TODO: Replace with your project's customized code snippet
     var config = {
@@ -175,12 +203,16 @@
     }
     // ...
     });
+
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+        crossorigin="anonymous"></script>
 
     <!-- added by Danny for overlay function -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -199,4 +231,5 @@
     <script text="text/javascript" src="js/drawing-spray.js"></script>
     <script text="text/javascript" src="js/drawing-text.js"></script>
 </body>
+
 </html>
