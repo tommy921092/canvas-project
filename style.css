@@ -66,6 +66,7 @@ li {
 }
 
 
+
 .overlay{
     position: absolute;
     top: 0;
@@ -73,7 +74,58 @@ li {
     width: 100%;
     height: 100%;
     z-index: 10;
-    background-color: rgba(0,0,0,0.5); /*dim the background*/
+    background-color: rgba(47, 206, 171, 0.8);
+    text-align: center;
+  }
+
+#form-text {
+    display: block;
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background-color: rgba(0,0,0,0.5);
+    align-content: center;
+    min-width: 250px;
+}
+
+#width, #height {
+    width: 50px;
+}
+
+h1 {
+    color: white;
+    font-size: 22px;
+}
+
+h2 {
+    color: white;
+    font-size: 18px;
+}
+
+.import-button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  #file-btn, #create {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 6px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .import-button input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
   }
 
 

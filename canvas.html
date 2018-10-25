@@ -22,19 +22,19 @@
     <div class="splash">
         <div class="overlay">
             <div id="form-text">
-                <img src="./img/logo.png">
+                <img id="coverpic" src="img/brand.svg">
                 <form class="canvas-size" method="post">
                     <div class="size-forms">
-                        W: <input type ="text" name="width" value="" class="dimension form-conrol" id="width">
-                        H: <input type ="text" name="height" value="" class="dimension form-conrol" id="height">
+                        <h1>Enter Canvas Dimensions</h1>
+                        <h2>Width : <input type ="text" name="width" value="" class="dimension form-conrol" id="width"></h2>
+                        <h2>Height: <input type ="text" name="height" value="" class="dimension form-conrol" id="height"></h2>
                     </div>
                     <div class="submit-button">
                         <input type="submit" value="Create Canvas" class="form-button" id="create">
                     </div>
-                    <hr>
                     <div class="import-button">
+                        <button class="btn"id="file-btn">Upload a file</button>
                         <input type="file" class="upload" />
-                        <input type="button" class="import-file form-button" value="Import Image">
                     </div>
                 </form>
             </div>
@@ -49,17 +49,24 @@
         <li><span class="btn btn-info" id="save" ><i class="fas fa-save"></i></span></li>
         <li><span class="btn btn-info " id="undo" ><i class="fas fa-undo"></i></span></li>
         <li><span class="btn btn-info " id="redo" ><i class="fas fa-redo"></i></span></li>
+
         <li><span>brushSize:</span><span class="btn btn-info"><input type=range min=5 max=20 id=brushSize></span></li>
 
-        <li><span>stroke:</span><input id="color-stroke" type="color" value="color"></li>
-        <li><span>fill:</span><input id="color-fill" type="color" value="color"></li>
-        <li><span>type:</span>
+        <li><span>stroke: </span><input id="color-stroke" type="color" value="color"></li>
+        <li><span>fill: </span><input id="color-fill" type="color" value="color"></li>
+        <li><span>type: </span>
+
             <select aria-labelledby="pencil">
                 <option id="Solid" value="Solid">Solid</option>
                 <option id="Dotted" value="Dotted">Dotted</option>
             </select>
         </li>
+
+
+        <!-- Danny - adding opacity -->
+        <li><span>Opacity: </span><span class="btn btn-info"><input value=1 type="range" min=0 max=1 id=opacity step="0.1"></span></li>
     </ul>
+
 
     <div id="tools" class="btn-group-vertical">
         <div class="position">
@@ -133,12 +140,10 @@
     firebase.initializeApp(config);
     var storage = firebase.storage();
     // Get a reference to the storage service, which is used to create references in your storage bucket
-
-
     // Create a storage reference from our storage service
     var storageRef = storage.ref();
     // Create a child reference
-    var imagesRef = storageRef.child('images');
+    var imagesRef = storageRef.child('image1');
     firebase.auth().signInAnonymously().catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;

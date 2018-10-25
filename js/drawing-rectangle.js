@@ -10,8 +10,6 @@ class DrawingRectangle extends PaintFunction{
     onMouseDown(coord,event){
         this.origX = coord[0];
         this.origY = coord[1];
-        var dataURL = canvasReal.toDataURL();
-        restorePoints.push(dataURL);
     }
 
     onDragging(coord,event){

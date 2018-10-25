@@ -1,3 +1,4 @@
+var counter =2;
 // Set Canvas dimension
 var winWidth = $(window).width() - 100;
 var winHeight = $(window).height() - 200;
@@ -19,10 +20,11 @@ $('.canvas-size').submit(function (e) {
 
 // import image
 
-$('input.import-file').click(function (e) {
-    e.preventDefault();
-    $('input.upload').click();
-});
+// $('input.import-file').click(function (e) {
+//     e.preventDefault();
+//     $('input.upload').click();
+// });
+
 $('input.upload').change(function () {
     var file = document.querySelector('input[type=file]').files[0];
     var url = URL.createObjectURL(file);
@@ -97,6 +99,13 @@ $("#brushSize").on("input", function () {
     contextReal.lineWidth = $(this).val();
     contextDraft.lineWidth = $(this).val();
 });
+
+
+// Opacity function ////////////////////////////////////
+$("#opacity").on("input", function () {
+    contextReal.globalAlpha = $(this).val();
+});
+
 
 $("#drawing-text").on("click", function () {
     currentFunction = new DrawingText (contextReal, contextDraft);
@@ -175,7 +184,10 @@ $('#save').on('click',function() {
         newImg.src = url;
         imagesRef.put(blob).then(function(snapshot){
             console.log('Uploaded a blob!');
+            console.log(newImg.src);
         })
+        imagesRef = storageRef.child(`image${counter}`);
+        counter++;
         // document.body.appendChild(newImg);
     });
 })
