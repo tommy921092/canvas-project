@@ -206,7 +206,7 @@ $(document).ready(function() {
     $(this).toggleClass("active");
     $(".styleAttr li").css("display", "inline-block");
     $(
-      ".styleAttr li:nth-child(6),.styleAttr li:nth-child(7),.styleAttr li:nth-child(8)"
+      ".styleAttr li:nth-child(6),.styleAttr li:nth-child(7),.styleAttr li:nth-child(8),.styleAttr li:nth-child(9),.styleAttr li:nth-child(10)"
     ).css("display", "none");
     $(".textPanel").css("display", "none");
   });
