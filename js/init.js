@@ -13,7 +13,9 @@ $('.canvas-size').submit(function (e) {
     var width = $("#width").val();
     var height = $("#height").val();
     $('#canvas canvas').attr("width", width).attr("height", height);
+
     contextReal.fillStyle = 'white';
+    contextDraft.fillStyle = 'transparent';
     contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
 })
 
@@ -61,7 +63,7 @@ $('input.upload').change(function () {
 
 $(document).ready(function () {
     contextReal.lineWidth = 10;
-    
+    contextDraft.fillStyle = 'transparent';
 
     $('#drawing-line').on('click', function () {
         currentFunction = new DrawingLine(contextReal, contextDraft);
@@ -159,12 +161,14 @@ $('#tools button:nth-child(2),#tools button:nth-child(3),#tools button:nth-child
     $(this).toggleClass('active');
     $('.styleAttr li').css('display', 'inline-block');
     $('.styleAttr li:nth-child(7)').css('display','none');
+    $('.textPanel').css('display','none');
 })
 //for shape
 $('#tools .dropdown').on('click', function (e) {
     $('#tools button').removeClass('active');
     $(this).toggleClass('active');
     $('.styleAttr li').css('display','inline-block');
+    $('.textPanel').css('display','none');
 })
 //for erasor
 $('#tools button:nth-child(7)').on('click', function (e) {
@@ -172,6 +176,14 @@ $('#tools button:nth-child(7)').on('click', function (e) {
     $(this).toggleClass('active');
     $('.styleAttr li').css('display', 'inline-block');
     $('.styleAttr li:nth-child(7),.styleAttr li:nth-child(8)').css('display','none');
+    $('.textPanel').css('display','none');
+})
+//for text
+$('#tools button:nth-child(6)').on('click', function (e) {
+    $('#tools button').removeClass('active');
+    $(this).toggleClass('active');
+    $('.styleAttr li:nth-child(5),.styleAttr li:nth-child(6),.styleAttr li:nth-child(7),.styleAttr li:nth-child(8),.styleAttr li:nth-child(9)').css('display', 'none');
+    $('.textPanel').css('display','flex');
 })
 
     $('canvas').mousemove(function (e) {

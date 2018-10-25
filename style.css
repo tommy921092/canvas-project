@@ -136,4 +136,14 @@ h2 {
     opacity: 0;
   }
 
+.textPanel {
+    display: none;
+    flex-direction: row;
+    list-style: none;
+}
+
+.textPanel li {
+    padding-left: 1vw;
+}
+
 
