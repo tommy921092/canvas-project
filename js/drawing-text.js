@@ -4,6 +4,7 @@ var textFontWeight = 'normal';
 var textFontSize = '17px';
 var textFontFace = 'Arial';
 var textFontStyle = 'normal';
+var textFontColor = 'black'
 var isBold = false;
 var isItalic = false;
 
@@ -21,12 +22,9 @@ class DrawingText extends PaintFunction {
 
     onMouseDown(coord, event) {
         if (!typing) {
-            this.contextDraft.strokeStyle = 'black';
-            // this.contextReal.strokeStyle = 'transparent';
+            // this.contextDraft.strokeStyle = 'black';
             this.contextDraft.lineWidth = 1;
             this.contextDraft.fillStyle = 'transparent';
-            // this.contextReal.fillStyle = 'transparent';
-            // this.contextReal.font = '1px arial';
             this.contextReal.textAlign = "center";
             this.contextReal.textBaseline = "middle";
             this.origX = coord[0];
@@ -102,7 +100,7 @@ class DrawingText extends PaintFunction {
 
         textReal.fillStyle = 'black';
 
-        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + topmargin}px; left:${this.origX + leftmargin}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-weight:${textFontWeight}; font-size:${textFontSize}; font-style:${textFontStyle}; font-family:${textFontFace};' type="text" placeholder='Input text here'> </form>`);
+        $('#canvas').append(`<form class='textInputForm' style=" top:${this.origY + topmargin}px; left:${this.origX + leftmargin}px;"> <input class='textInput' style='height:${this.height + 1}px; width:${this.width + 1}px; font-weight:${textFontWeight}; font-size:${textFontSize}; font-style:${textFontStyle}; font-family:${textFontFace}; color:${textFontColor}' type="text" placeholder='Input text here'> </form>`);
 
 
 
@@ -110,7 +108,8 @@ class DrawingText extends PaintFunction {
         $('#canvas').on('submit', '.textInputForm', function (e) {
             e.preventDefault();
             var message = $('.textInput').val();
-            textReal.font = `${textFontWeight}  ${textFontStyle} ${textFontSize} ${textFontFace}`
+            textReal.fillStyle = textFontColor;
+            textReal.font = `${textFontWeight} ${textFontStyle} ${textFontSize} ${textFontFace}`
             console.log(textReal.font);
             textReal.fillText(message, x + 10, y);
             $('#canvas').off('submit', '.textInputForm')
@@ -137,11 +136,13 @@ function resetPosition() {
 //Fontface selector//
 $('#fontFace').on('input', function () {
     textFontFace = ($(this).val());
+    $('.textInput').css('font-family', textFontFace);
 })
 
 //FontSize selector//
 $('#fontSize').on('input', function () {
     textFontSize = ($(this).val()) + 'px';
+    $('.textInput').css('font-size', textFontSize);
 })
 
 //bold function in text panel
@@ -171,7 +172,14 @@ $('#italic').click(function () {
         textFontStyle = 'normal';
         isItalic = false;
         $('#italic').css('font-style', 'normal')
+        $('.textInput').css('font-style', 'normal');
     }
 }
 )
+
+//font-color
+$('#font-color').on('input', function () {
+    textFontColor = $(this).val();
+    $('.textInput').css('color', textFontColor);
+})
 
