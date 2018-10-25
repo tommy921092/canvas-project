@@ -6,9 +6,9 @@ let currentFunction;
 let dragging = false;
 let typing = false;
 let shifting = false;
-let restorePoints = [];
-let discardedPoints =[];
-var oImg = new Image();
+let restorePoints = [];// for undo
+let discardedPoints =[];// for redo
+var oImg = new Image();// for screenshot
 
 $('#canvas-draft').mousedown(function(e){
     let mouseX = e.offsetX;
@@ -66,9 +66,9 @@ class PaintFunction{
         contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         contextDraft.closePath();
     }
-          
-}
 
+}
+//download the drawing to disk as png
 function download(){
     var download = document.getElementById("download");
     var image = document.getElementById("canvas-real").toDataURL("image/png")

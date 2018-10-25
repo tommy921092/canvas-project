@@ -14,7 +14,8 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
   </head>
   <body>
-        <a id="download" download="image.png"><button type="button" onClick="download()">Download</button></a>
+
+        
 
     <!-- splash screen -->
 
@@ -45,7 +46,19 @@
 
         <img src="img/brand.svg" alt="" >
         <li><span class="btn btn-info" id="clear" ><i class="fas fa-trash-alt"></i></span></li>
-        <li><span class="btn btn-info" id="save" ><i class="fas fa-save"></i></span></li>
+        <li>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-download"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <a id="download" download="image.png"><span class="btn btn-info" onClick="download()"><i class="fas fa-download"></i></button></a>
+                <span class="btn btn-info" id="save" ><i class="fas fa-save"></i></span>
+            </div>
+            </div>
+        </li>
         <li><span class="btn btn-info " id="undo" ><i class="fas fa-undo"></i></span></li>
         <li><span class="btn btn-info " id="redo" ><i class="fas fa-redo"></i></span></li>
 
@@ -91,18 +104,18 @@
                 <i class="far fa-square"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <button id="drawing-oval" class="btn"><i class="far fa-circle"></i></button>
-                <button id="drawing-rectangle" class="btn"><i class="far fa-square"></i></button>
-                <button id="drawing-polygon" class="btn"><i class="fas fa-draw-polygon"></i></button>
-                <button id="drawing-star" class="btn"><i class="far fa-star"></i></button>
+                <button id="drawing-oval" class="btn type2"><i class="far fa-circle"></i></button>
+                <button id="drawing-rectangle" class="btn type2"><i class="far fa-square"></i></button>
+                <button id="drawing-polygon" class="btn type2"><i class="fas fa-draw-polygon"></i></button>
+                <button id="drawing-star" class="btn type2"><i class="far fa-star"></i></button>
             </div>
         </div>
         <button type="button" class="btn btn-secondary" id="drawing-text" title="Text [t]" data-shortcut="t">
         <i class="fas fa-font"></i></button>
-        <button type="button" class="btn btn-secondary" id="Eraser" title="Eraser [e]" data-shortcut="e">
+        <button type="button type3" class="btn btn-secondary" id="Eraser" title="Eraser [e]" data-shortcut="e">
             <i class="fas fa-eraser"></i>
         </button>
-        <button type="button" class="btn btn-secondary" id="Eraser" title="Eraser [e]" data-shortcut="e">
+        <button type="button" class="btn btn-secondary" id="Filter" title="Filter [f]" data-shortcut="f">
             <i class="fas fa-filter"></i>
         </button>
     </div>

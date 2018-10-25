@@ -119,30 +119,48 @@ $("select").on('input', function(){
       }
     })
 
-//Default
-currentFunction = new DrawingLine(contextReal, contextDraft);//default shape
+// Default function for drawing
+currentFunction = new DrawingLine(contextReal, contextDraft);
 // clear
 $('#clear').click(function () {
     contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
 });
 
+// change the stroke color using default color picker
 $('#color-stroke').on('input', function () {
     contextReal.strokeStyle = $(this).val();
     contextDraft.strokeStyle = $(this).val();
 })
+// change the fill color using default color picker
 $('#color-fill').on('input', function () {
     contextReal.fillStyle = $(this).val();
     contextDraft.fillStyle = $(this).val();
 })
-
+// display cursor position in canvas
 $('canvas').mousemove(function (e) {
     $('.mouse-x').html(e.offsetX);
     $('.mouse-y').html(e.offsetY);
 })
-
-$('#tools button').on('click', function (e) {
+// change css attributes shown for different tools
+//for pen
+$('#tools button:nth-child(2),#tools button:nth-child(3),#tools button:nth-child(4)').on('click', function (e) {
     $('#tools button').removeClass('active');
     $(this).toggleClass('active');
+    $('.styleAttr li').css('display', 'inline-block');
+    $('.styleAttr li:nth-child(7)').css('display','none');
+})
+//for shape
+$('#tools .dropdown').on('click', function (e) {
+    $('#tools button').removeClass('active');
+    $(this).toggleClass('active');
+    $('.styleAttr li').css('display','inline-block');
+})
+//for erasor
+$('#tools button:nth-child(7)').on('click', function (e) {
+    $('#tools button').removeClass('active');
+    $(this).toggleClass('active');
+    $('.styleAttr li').css('display', 'inline-block');
+    $('.styleAttr li:nth-child(7),.styleAttr li:nth-child(8)').css('display','none');
 })
 
 $('.dropdown-menu button').on('click',function(e){

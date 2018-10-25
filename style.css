@@ -28,31 +28,41 @@ body {
 }
 
 #tools button:hover {
+    background-color: rgb(34, 130, 185);
     border: solid 2px #000;
     opacity: 1;
 }
-#tools button.active {
-    background-color:skyblue;
+#tools button.active{
+    background-color: rgb(34, 130, 185);
     box-shadow: 1px 1px 2px #000000;
     opacity: 1;
     z-index: 2;
 }
 
-div.dropdown-menu.show {
+#tools div.dropdown-menu.show {
     left:70px!important;
     background: transparent;
     border: none;
 }
 
-ul {
+ul.styleAttr {
     display: flex;
     list-style: none;
     flex-direction: row;
-    padding-top: 4vh;
+    padding-top: 1vh;
     padding-left: 3vw;
 }
 
-li {
+.styleAttr .dropdown-toggle {
+    border: none;
+    background: #17a2b8;
+}
+.styleAttr .dropdown-menu.show {
+    background: transparent;
+    border:none;
+}
+
+.styleAttr li {
     padding-left: 1vw;
 }
 
@@ -106,7 +116,7 @@ h2 {
     overflow: hidden;
     display: inline-block;
   }
-  
+
   #file-btn, #create {
     border: 2px solid gray;
     color: gray;
@@ -117,7 +127,7 @@ h2 {
     font-weight: bold;
     margin-bottom: 8px;
   }
-  
+
   .import-button input[type=file] {
     font-size: 100px;
     position: absolute;
