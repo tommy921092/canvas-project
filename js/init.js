@@ -239,13 +239,13 @@ $(document).ready(function() {
     );
   });
 
+
   //undo
   $("#undo").on("click", function() {
     oImg.onload = function() {
       contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
       contextReal.drawImage(oImg, 0, 0);
     };
-
     var discard = restorePoints.pop();
 
     if (discard != undefined) {
