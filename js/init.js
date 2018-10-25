@@ -207,7 +207,10 @@ $('#save').on('click',function() {
         imagesRef = storageRef.child(`image${counter}`);
         counter++;
         // document.body.appendChild(newImg);
+        imagesRef.getDownloadURL().then(function(downloadURL){
+            alert('File available at '+downloadURL);
     });
+    })
 })
 
 $('#redo').on('click',function(){
