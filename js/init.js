@@ -113,7 +113,7 @@ $(document).ready(function () {
         }
     })
 
-    
+
 
     //Default
     currentFunction = new DrawingLine(contextReal, contextDraft);//default shape
@@ -222,6 +222,21 @@ $('#tools button:nth-child(6)').on('click', function (e) {
         }}
     );
 
+    //redo
+    $('#redo').on('click', function () {
+        if (discardedPoints.length > 0) {
+            oImg.src = discardedPoints.slice(-1);
+            restorePoints.push(discardedPoints.pop());
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            contextReal.drawImage(oImg, 0, 0);
+        } else if (discardedPoints.length = 0) {
+            oImg.src = discardedPoints.slice(0)
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            contextReal.drawImage(oImg, 0, 0);
+        } else if (discardedPoints = []) {
+            alert('You redo too much.')
+        }
+    });
 
 
 //save as blob
