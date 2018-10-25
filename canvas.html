@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+
+    <link type="text/css" rel="stylesheet" href="js/rgbaColorPicker.css" />
+    <script type="text/javascript" src="js/rgbaColorPicker.js"></script>
+
+
   </head>
   <body>
     <!-- splash screen -->
@@ -46,8 +51,46 @@
         
         <li><span>brushSize:</span><span class="btn btn-info"><input type=range min=5 max=20 id=brushSize></span></li>
 
-        <li><span>stroke: </span><input id="color-stroke" type="color" value="color"></li>
+        <!-- <li><span>stroke: </span><input id="color-stroke" type="color" value="color"></li> -->
+
+
+
+
+
+
+
+
+        
+
+
+
+
+<!-- How to get the value of new color to link????? -->
+        <li><span>stroke2: </span><input id="color-stroke" name="color-stroke" class="color" type="color"/>
+            
+            <script type="text/javascript">
+                function OnColorChanged(selectedColor, inputId) {
+                    if (inputId == "input2") {
+                        var rgbaBox = document.getElementById("rgbaBox");
+                        rgbaBox.style.backgroundColor = selectedColor;
+                    }
+                }
+            </script>
+        
+        </li>
+
+
+
+
+
+
+
+
+
+
         <li><span>fill: </span><input id="color-fill" type="color" value="color"></li>
+
+
         <li><span>type: </span>
             <select aria-labelledby="pencil">
                 <option id="Solid" value="Solid">Solid</option>
@@ -128,5 +171,6 @@
     <script text="text/javascript" src="js/drawing-eraser.js"></script>
     <script text="text/javascript" src="js/drawing-spray.js"></script>
     <script text="text/javascript" src="js/drawing-text.js"></script>
+
   </body>
 </html>
