@@ -190,7 +190,7 @@ $(document).ready(function() {
     $("#tools button").removeClass("active");
     $(this).toggleClass("active");
     $(".styleAttr li").css("display", "inline-block");
-    $(".styleAttr li:nth-child(7)").css("display", "none");
+    $(".styleAttr li:nth-child(8)").css("display", "none");
     $(".textPanel").css("display", "none");
   });
   //for shape
